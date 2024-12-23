@@ -1,0 +1,71 @@
+2. Write semantic HTML code using <article> and <section>.  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        article {
+            margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 15px;
+        }
+        header, footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>The Wonders of the Solar System</h1>
+            <p>By Jane Doe</p>
+        </header>
+        <section>
+            <h2>Introduction</h2>
+            <p>The solar system is a fascinating place with eight unique planets orbiting a magnificent star, the Sun. This article explores some of the wonders of our solar system.</p>
+        </section>
+        <section>
+            <h2>Planets</h2>
+            <p>From the scorching surface of Mercury to the icy reaches of Neptune, each planet has its own story to tell. The largest, Jupiter, is a gas giant with a storm twice the size of Earth, while the smallest, Mercury, is a rocky world closest to the Sun.</p>
+        </section>
+        <section>
+            <h2>Moons</h2>
+            <p>Our solar system is home to over 200 moons, with some planets having more than 80! These natural satellites vary in size and composition, with some like Europa and Enceladus harboring oceans beneath their icy crusts.</p>
+        </section>
+        <footer>
+            <p>&copy; 2024 Jane Doe. All rights reserved.</p>
+        </footer>
+    </article>
+
+    <article>
+        <header>
+            <h1>Exploring the Depths of the Ocean</h1>
+            <p>By John Smith</p>
+        </header>
+        <section>
+            <h2>Introduction</h2>
+            <p>The ocean is a vast and mysterious place, covering more than 70% of our planet's surface. This article dives into the depths to uncover some of the ocean's greatest secrets.</p>
+        </section>
+        <section>
+            <h2>Marine Life</h2>
+            <p>The ocean is teeming with life, from the smallest plankton to the largest whales. Coral reefs, often called the "rainforests of the sea," support a dazzling array of marine species.</p>
+        </section>
+        <section>
+            <h2>Ocean Exploration</h2>
+            <p>Despite covering the majority of our planet, much of the ocean remains unexplored. Advances in technology have allowed us to explore deeper than ever before, revealing new species and ecosystems.</p>
+        </section>
+        <footer>
+            <p>&copy; 2024 John Smith. All rights reserved.</p>
+        </footer>
+    </article>
+</body>
+</html>
+
