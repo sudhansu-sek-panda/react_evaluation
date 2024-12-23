@@ -1,0 +1,42 @@
+14. Write a React component that hides text after 3 seconds.  
+import React, { useState, useEffect } from 'react';
+
+const HideTextAfter3Seconds = () => {
+    const [visible, setVisible] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setVisible(false);
+        }, 3000); // 3000 milliseconds = 3 seconds
+
+        return () => clearTimeout(timer); // Cleanup the timer
+    }, []);
+
+    return (
+        <div>
+            {visible && <p>This text will hide after 3 seconds!</p>}
+        </div>
+    );
+};
+
+export default HideTextAfter3Seconds;
+
+
+Explanation:
+useState:
+
+const [visible, setVisible] = useState(true); initializes a state variable visible to true.
+
+useEffect:
+
+The useEffect hook sets up a timer using setTimeout that will update the visible state to false after 3 seconds (3000 milliseconds).
+
+The empty dependency array [] ensures that this effect runs only once after the initial render.
+
+The cleanup function return () => clearTimeout(timer); ensures that the timer is cleared if the component unmounts before the timer completes.
+
+Conditional Rendering:
+
+The text "This text will hide after 3 seconds!" is rendered conditionally based on the value of visible. If visible is true, the text is displayed. Once visible is set to false, the text is hidden.
+
+This component will hide the text 3 seconds after it is rendered.
