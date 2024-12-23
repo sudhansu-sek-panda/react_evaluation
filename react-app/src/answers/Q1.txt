@@ -1,0 +1,30 @@
+1. What is the difference between id and class attributes?  
+The id and class attributes in HTML both provide ways to style elements and target them with JavaScript, but they serve different purposes and have distinct rules:
+
+id Attribute:
+Uniqueness: The value of the id attribute must be unique within a document. No two elements should have the same id.
+
+Specificity: id selectors have higher specificity in CSS. This means they override class selectors if both are applied to the same element.
+
+JavaScript: IDs are often used to target elements directly with JavaScript. For example, you can use document.getElementById('myId') to get the element with that specific id.
+
+Syntax: In CSS, you target an element with an id using the hash (#) symbol. For example:
+
+css
+#myId {
+    color: blue;
+}
+
+class Attribute:
+Reusability: The class attribute allows you to apply the same styling or behavior to multiple elements. Multiple elements can share the same class name.
+
+Specificity: Class selectors have lower specificity compared to id selectors. They can be overridden by id selectors and other more specific selectors.
+
+JavaScript: Classes can be used to target multiple elements in JavaScript. For example, you can use document.getElementsByClassName('myClass') or document.querySelectorAll('.myClass') to get all elements with that class.
+
+Syntax: In CSS, you target elements with a class using the dot (.) symbol. For example:
+
+css
+.myClass {
+    color: red;
+}
