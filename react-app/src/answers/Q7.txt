@@ -1,0 +1,59 @@
+7.  Explain let vs. const vs. var and hoisting.  
+var:
+Scope: Variables declared with var are function-scoped. If you declare a var variable inside a function, it is accessible anywhere within that function.
+
+Hoisting: var declarations are hoisted to the top of their scope (function or global) with a default value of undefined. This means you can use the variable before its declaration without causing an error.
+
+Re-declaration: You can re-declare a var variable in the same scope without causing an error.
+
+javascript
+console.log(foo); // undefined
+var foo = 'Hello';
+console.log(foo); // 'Hello'
+let:
+Scope: Variables declared with let are block-scoped. They are only accessible within the block ({}) in which they are declared.
+
+Hoisting: let declarations are hoisted but not initialized. This means accessing the variable before its declaration results in a ReferenceError.
+
+Re-declaration: You cannot re-declare a let variable in the same scope.
+
+javascript
+{
+    let bar = 'Hi';
+    console.log(bar); // 'Hi'
+}
+// console.log(bar); // ReferenceError: bar is not defined
+
+console.log(baz); // ReferenceError: Cannot access 'baz' before initialization
+let baz = 'Hello';
+const:
+Scope: Variables declared with const are also block-scoped, similar to let.
+
+Hoisting: const declarations are hoisted but not initialized, leading to a ReferenceError if accessed before declaration.
+
+Re-declaration and Assignment: You cannot re-declare or reassign a const variable. The value must be assigned at the time of declaration and cannot be changed.
+
+javascript
+const greeting = 'Hello';
+console.log(greeting); // 'Hello'
+// greeting = 'Hi'; // TypeError: Assignment to constant variable
+
+{
+    const message = 'Hi there';
+    console.log(message); // 'Hi there'
+}
+// console.log(message); // ReferenceError: message is not defined
+Summary:
+Scope: var is function-scoped, while let and const are block-scoped.
+
+Hoisting: var declarations are hoisted and initialized with undefined, whereas let and const are hoisted but not initialized, leading to a ReferenceError if accessed before declaration.
+
+Re-declaration: var can be re-declared within the same scope, but let and const cannot.
+
+Reassignment: let variables can be reassigned, whereas const variables cannot be reassigned.
+
+
+
+
+ 
+
