@@ -1,0 +1,74 @@
+22.  Explain the difference between controlled and uncontrolled components in React.
+In React, controlled and uncontrolled components are two ways to manage form input elements and their state. Understanding the difference between these two can help you decide which approach best suits your application's needs.
+
+Controlled Components:
+Definition: A controlled component is one where the form data is handled by the component’s state. The component fully controls the form element’s value through React state.
+
+Data Flow: The component’s state acts as the single source of truth for the input's value. Any change to the input element is reflected in the component’s state, and vice versa.
+
+Example:
+
+jsx
+import React, { useState } from 'react';
+
+const ControlledComponent = () => {
+    const [value, setValue] = useState('');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
+
+    return (
+        <div>
+            <input type="text" value={value} onChange={handleChange} />
+            <p>Input value: {value}</p>
+        </div>
+    );
+};
+
+export default ControlledComponent;
+Uncontrolled Components:
+Definition: An uncontrolled component is one where the form data is handled by the DOM itself. The component doesn’t directly manage the form input's value; instead, you access the value using a ref.
+
+Data Flow: The form element itself maintains its own state. You access the current value of the form element when needed, typically using a ref.
+
+Example:
+
+jsx
+import React, { useRef } from 'react';
+
+const UncontrolledComponent = () => {
+    const inputRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert(`Input value: ${inputRef.current.value}`);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text" ref={inputRef} />
+            <button type="submit">Submit</button>
+        </form>
+    );
+};
+
+export default UncontrolledComponent;
+Key Differences:
+State Management:
+
+Controlled Components: Managed by React state, providing a single source of truth.
+
+Uncontrolled Components: Managed by the DOM, with the current value accessed via ref.
+
+Update Handling:
+
+Controlled Components: Updates are handled through onChange events, which update the component’s state.
+
+Uncontrolled Components: The DOM handles updates, and you access the current value when needed.
+
+Use Cases:
+
+Controlled Components: Useful when you need to enforce specific behaviors, validations, or when you need immediate feedback or control over the input's value.
+
+Uncontrolled Components: Useful for simpler forms or when you do not need immediate control over the input's state, reducing the need for boilerplate code.
