@@ -1,0 +1,47 @@
+17.  Difference between res.send() and res.json().   
+In Express.js, res.send() and res.json() are methods used to send responses to the client, but they have different purposes and behaviors:
+
+res.send()
+Purpose: Sends the HTTP response and can send various types of content including strings, objects, arrays, and Buffers.
+
+Content-Type: The Content-Type header is set automatically based on the argument type. For example, sending a string sets the content type to text/html, while sending an object sets it to application/json.
+
+Usage: Used when you need to send a simple response that can be a string, HTML, or any other type of content.
+
+Example:
+
+javascript
+app.get('/send', (req, res) => {
+    res.send('This is a string response.');
+});
+
+app.get('/sendObject', (req, res) => {
+    res.send({ message: 'This is an object response.' });
+});
+res.json()
+Purpose: Sends a JSON response. It converts a JavaScript object or array to a JSON string using JSON.stringify() and sets the Content-Type header to application/json.
+
+Content-Type: Always sets the Content-Type header to application/json.
+
+Usage: Used when you want to send a response that is explicitly in JSON format.
+
+Example:
+
+javascript
+app.get('/json', (req, res) => {
+    res.json({ message: 'This is a JSON response.' });
+});
+Key Differences:
+Content-Type:
+
+res.send(): Determines Content-Type based on the argument type.
+
+res.json(): Always sets Content-Type to application/json.
+
+Use Case:
+
+res.send(): Flexible, can send various types of content.
+
+res.json(): Specifically for sending JSON responses.
+
+
