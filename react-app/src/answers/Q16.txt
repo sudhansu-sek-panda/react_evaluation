@@ -1,0 +1,86 @@
+16. Define middleware in Express.js.
+Middleware in Express.jsrefers to functions that execute during the lifecycle of a request to the server. Each middleware function can modify the request object (req), the response object (res), and control when the next middleware function in the stack is called. Middleware functions are a powerful way to add functionalities to an Express application.
+
+Types of Middleware:
+Application-Level Middleware: Bound to an instance of the express application using app.use() or app.METHOD().
+
+Router-Level Middleware: Similar to application-level middleware but bound to an instance of express.Router().
+
+Error-Handling Middleware: Defined with four arguments and used to handle errors that occur in the application.
+
+Built-in Middleware: Middleware functions included with Express, such as express.static() for serving static files.
+
+Third-Party Middleware: Middleware created by the community and available through npm, like body-parser or morgan.
+
+Example:
+Application-Level Middleware:
+javascript
+const express = require('express');
+const app = express();
+
+// Middleware function to log request details
+const logger = (req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next(); // Pass control to the next middleware function
+};
+
+app.use(logger);
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+Router-Level Middleware:
+javascript
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+// Middleware function to log request details for router
+const logger = (req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+};
+
+router.use(logger);
+
+router.get('/user', (req, res) => {
+    res.send('User Page');
+});
+
+app.use('/api', router);
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+Error-Handling Middleware:
+javascript
+const express = require('express');
+const app = express();
+
+// Middleware to simulate an error
+app.use((req, res, next) => {
+    const err = new Error('Something went wrong!');
+    next(err);
+});
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+Summary:
+Middleware: Functions that have access to req, res, and next.
+
+Use Cases: Logging, authentication, error handling, parsing request bodies, serving static files, etc.
+
+Flexibility: Can be applied at different levels (application, router) and can include built-in or third-party middleware.
+
+Middleware provides a modular and organized way to handle various aspects of an Express application, making it easier to manage and extend functionalities.
