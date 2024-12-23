@@ -1,0 +1,68 @@
+13.  Define props vs. state in React.  
+In React, both props and state are crucial concepts used to manage data and control how components behave and render. Here’s a detailed comparison to help clarify their differences and uses:
+
+Props:
+Definition: Short for "properties," props are read-only inputs passed from parent to child components.
+
+Immutability: Props are immutable, meaning they cannot be modified by the child component. The parent component controls the props and must pass down any updated values.
+
+Usage: Props are used to pass data and event handlers down the component tree, allowing for dynamic data rendering within child components.
+
+Access: In a functional component, props are accessed via function parameters. In class components, they are accessed via this.props.
+
+jsx
+// Functional component example
+const ChildComponent = (props) => {
+    return <div>{props.message}</div>;
+};
+
+// Parent component
+const ParentComponent = () => {
+    return <ChildComponent message="Hello, World!" />;
+};
+State:
+Definition: State is a built-in object that stores dynamic data that can change over time within a component. It allows a component to manage its own data and behavior.
+
+Mutability: State is mutable and can be updated using the useState hook in functional components or the setState method in class components. When the state changes, the component re-renders to reflect the new state.
+
+Usage: State is used to store data that needs to be tracked and updated within a component, such as form input values, toggles, and counters.
+
+Access: In functional components, state is managed with the useState hook. In class components, it is managed with this.state and updated using this.setState.
+
+jsx
+// Functional component example using useState
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+};
+
+// Class component example
+class CounterClass extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    increment = () => {
+        this.setState({ count: this.state.count + 1 });
+    };
+
+    render() {
+        return (
+            <div>
+                <p>Count: {this.state.count}</p>
+                <button onClick={this.increment}>Increment</button>
+            </div>
+        );
+    }
+}
+Summary:
+Props: Passed from parent to child, read-only, and immutable. Used for data that does not change.
+
+State: Managed within the component, mutable, and can be updated. Used for data that changes over time and triggers re-renders.
