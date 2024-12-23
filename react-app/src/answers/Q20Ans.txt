@@ -1,0 +1,43 @@
+20. Write a folder structure for a MERN project.
+mern-project/
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   └── userController.js
+│   ├── models/
+│   │   └── userModel.js
+│   ├── routes/
+│   │   └── userRoutes.js
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   ├── utils/
+│   │   └── errorHandler.js
+│   ├── .env
+│   ├── server.js
+│   └── package.json
+│
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Header.js
+│   │   ├── pages/
+│   │   │   └── Home.js
+│   │   ├── context/
+│   │   │   └── AuthContext.js
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   ├── App.css
+│   │   ├── App.js
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   ├── setupTests.js
+│   │   └── package.json
+│
+├── .gitignore
+├── README.md
